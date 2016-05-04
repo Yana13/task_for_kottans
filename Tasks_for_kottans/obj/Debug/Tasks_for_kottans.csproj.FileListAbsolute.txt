@@ -1,0 +1,5 @@
+c:\users\ania\documents\visual studio 2012\Projects\Tasks_for_kottans\Tasks_for_kottans\bin\Debug\Tasks_for_kottans.exe.config
+c:\users\ania\documents\visual studio 2012\Projects\Tasks_for_kottans\Tasks_for_kottans\bin\Debug\Tasks_for_kottans.exe
+c:\users\ania\documents\visual studio 2012\Projects\Tasks_for_kottans\Tasks_for_kottans\bin\Debug\Tasks_for_kottans.pdb
+c:\users\ania\documents\visual studio 2012\Projects\Tasks_for_kottans\Tasks_for_kottans\obj\Debug\Tasks_for_kottans.exe
+c:\users\ania\documents\visual studio 2012\Projects\Tasks_for_kottans\Tasks_for_kottans\obj\Debug\Tasks_for_kottans.pdb
