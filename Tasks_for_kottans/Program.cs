@@ -31,11 +31,11 @@ namespace Tasks_for_kottans
         {
             string[] vendors = { "American Express", "Maestro", "MastCard", "Visa", "JCD", "Unknown" };
             string amExpress = @"^3[4,7][\d, ]{13,16}$",
-             maestro = @"^(?(?=5)5[0,6-9]|6[0-9])[\d, ]{12,23}$",
-             mastCard = @"^(?(?=5)5[1-5]|2(22[1-9]|2[3-9]\d|[3-6]\d\d|71\d|720))[\d, ]{16,19}$",
-             visa = @"^4[\d, ]{13,23}$",
-             jcb = @"^35(?(?=2)2[8,9]|[3-8]\d)[\d, ]{16,19}$",
-             check = @"^[\d, ]{13,23}$";
+             maestro = @"^(?(?=5)5[0,6-9]|6[0-9])[\d, ]{10,23}$",
+             mastCard = @"^(?(?=5)5[1-5]|2(22[1-9]|2[3-9]\d|[3-6]\d\d|71\d|720))[\d, ]{12,19}$",
+             visa = @"^4[\d, ]{12,23}$",
+             jcb = @"^35(?(?=2)2[8,9]|[3-8]\d)[\d, ]{12,19}$",
+             check = @"^[\d, ]{12,23}$";
             def = false;
             if (Regex.IsMatch(a, check))
             {
