@@ -9,60 +9,52 @@ namespace Tasks_for_kottans
 {
     class Program
     {
+        static bool def;
         static void Main(string[] args)
         {
             Console.WriteLine("Enter your credit card number:");
             string q = Console.ReadLine();           
-            GetCreditCardVendor(q);
+            Console.WriteLine(GetCreditCardVendor(q));
             //string q = "4561 2612 1234 5467";
-            if(IsCreditCardNumberValid(q))
-                 Console.WriteLine("Your card number is valid");              
-            else            
-                 Console.WriteLine("Your card number is not valid");
-            GenerateNextCreditCardNumber(q);
+            if (def == true)
+            {
+                if (IsCreditCardNumberValid(q))
+                    Console.WriteLine("Your card number is valid");
+                else
+                    Console.WriteLine("Your card number is not valid");
+                Console.WriteLine("Next valid number:");
+                GenerateNextCreditCardNumber(q);
+            }
             Console.ReadLine();
         }
-        static void GetCreditCardVendor(string a)
+        static string GetCreditCardVendor(string a)
         {
+            string[] vendors = { "American Express", "Maestro", "MastCard", "Visa", "JCD", "Unknown" };
             string amExpress = @"^3[4,7][\d, ]{13,16}$",
              maestro = @"^(?(?=5)5[0,6-9]|6[0-9])[\d, ]{12,23}$",
              mastCard = @"^(?(?=5)5[1-5]|2(22[1-9]|2[3-9]\d|[3-6]\d\d|71\d|720))[\d, ]{16,19}$",
              visa = @"^4[\d, ]{13,23}$",
              jcb = @"^35(?(?=2)2[8,9]|[3-8]\d)[\d, ]{16,19}$",
              check = @"^[\d, ]{13,23}$";
-            bool def = true;
+            def = false;
             if (Regex.IsMatch(a, check))
             {
+                def = true;
                 if (Regex.IsMatch(a, amExpress))
-                {
-                    Console.WriteLine("American Express");
-                    def = false;
-                }
+                    return vendors[0];
                 if (Regex.IsMatch(a, maestro))
-                {
-                    Console.WriteLine("Maestro");
-                    def = false;
-                }
+                    return vendors[1];
                 if (Regex.IsMatch(a, mastCard))
-                {
-                    Console.WriteLine("MastCard");
-                    def = false;
-                }
+                    return vendors[2];
                 if (Regex.IsMatch(a, visa))
-                {
-                    Console.WriteLine("Visa");
-                    def = false;
-                }
+                    return vendors[3];
                 if (Regex.IsMatch(a, jcb))
-                {
-                    Console.WriteLine("JCD");
-                    def = false;
-                }
-                if (def)
-                    Console.WriteLine("Unknown");
+                    return vendors[4];
+                else
+                    return vendors[5];
             }
             else
-                Console.WriteLine("You enter wrong credit card number");
+                return String.Format("You enter wrong credit card number");
         }
         static bool IsCreditCardNumberValid(string a)
         {
@@ -94,12 +86,10 @@ namespace Tasks_for_kottans
             }
             if (sum % 10 == 0)
             {
-                //Console.WriteLine("Your card number is valid");
                 return true;
             }
             else
-            {
-               // Console.WriteLine("Your card number is not valid");
+            {               
                 return false;
             }
         }
