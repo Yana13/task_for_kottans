@@ -13,15 +13,23 @@ namespace Tasks_for_kottans
         static void Main(string[] args)
         {
             Console.WriteLine("Enter your credit card number:");
-            string q = Console.ReadLine();           
-            Console.WriteLine(GetCreditCardVendor(q));
+            string q = Console.ReadLine();
+            if (IsCreditCardNumberValid(q))
+                Console.WriteLine(GetCreditCardVendor(q));
+            else
+            {
+                Console.WriteLine("Your card number is not valid");
+                Console.WriteLine("Next valid number:");
+                GenerateNextCreditCardNumber(q);
+            }
             //string q = "4561 2612 1234 5467";
             if (def == true)
             {
                 if (IsCreditCardNumberValid(q))
+                {
+
                     Console.WriteLine("Your card number is valid");
-                else
-                    Console.WriteLine("Your card number is not valid");
+                }              
                 Console.WriteLine("Next valid number:");
                 GenerateNextCreditCardNumber(q);
             }
@@ -29,7 +37,7 @@ namespace Tasks_for_kottans
         }
         static string GetCreditCardVendor(string a)
         {
-            string[] vendors = { "American Express", "Maestro", "MastCard", "Visa", "JCD", "Unknown" };
+            string[] vendors = { "American Express", "Maestro", "MasterCard", "Visa", "JCB", "Unknown" };
             string amExpress = @"^3[4,7][\d, ]{13,16}$",
              maestro = @"^(?(?=5)5[0,6-9]|6[0-9])[\d, ]{10,23}$",
              mastCard = @"^(?(?=5)5[1-5]|2(22[1-9]|2[3-9]\d|[3-6]\d\d|71\d|720))[\d, ]{12,19}$",
