@@ -15,6 +15,7 @@ namespace Tasks_for_kottans
             Console.WriteLine("Enter your credit card number:");
             string q = Console.ReadLine();
             GetCreditCardVendor(q);
+            Console.WriteLine(GetCreditCardVendor(q));
             if (def == true)
             {
                 if (IsCreditCardNumberValid(q))
@@ -35,10 +36,10 @@ namespace Tasks_for_kottans
         {
             string[] vendors = { "American Express", "Maestro", "MasterCard", "Visa", "JCB", "Unknown" };
             string amExpress = @"^3[4,7]\d\d ?[\d]{4} ?[\d]{4} ?[\d]{3}$",
-             maestro = @"^((?(?=5)5[0,6-9]|6[0-9])\d\d ?[\d]{4} ?([\d]{4}| ?[\d]{4} ?[\d]{1,3}|  ?[\d]{4} ?[\d]{4}| ?[\d]{4} ?[\d]{4} ?[\d]{1,3}))$",
+             maestro = @"^((?(?=5)5[0,6-9]|6[0-9])\d\d ?[\d]{4} ?([\d]{4}| ?[\d]{4} ?[\d]{1,3}| ?[\d]{4} ?[\d]{4}| ?[\d]{4} ?[\d]{4} ?[\d]{1,3}))$",
              mastCard = @"^(?(?=5)5[1-5]\d\d ?[\d]{4} ?[\d]{4} ?[\d]{4}|2(22[1-9]|2[3-9]\d|[3-6]\d\d|71\d|720) ?[\d]{4} ?[\d]{4} ?[\d]{4})$",
              visa = @"^4\d\d\d ?[\d]{4} ?[\d]{4} ?(\d|[\d]{4}|[\d]{4} ?[\d]{3})$",
-             jcb = @"^(35(?(?=2)2[8,9]|[3-8]\d))\d\d ?[\d]{4} ?[\d]{4} ?[\d]{4}$",
+             jcb = @"^(35(?(?=2)2[8,9]|[3-8]\d)) ?[\d]{4} ?[\d]{4} ?[\d]{4}$",
              check = @"^[\d, ]{12,23}$";
             def = false;
             if (Regex.IsMatch(a, check))
