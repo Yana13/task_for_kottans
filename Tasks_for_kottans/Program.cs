@@ -14,27 +14,21 @@ namespace Tasks_for_kottans
         {
             Console.WriteLine("Enter your credit card number:");
             string q = Console.ReadLine();
-            if (IsCreditCardNumberValid(q))
-                Console.WriteLine(GetCreditCardVendor(q));
-                
-            else
-            {
-                Console.WriteLine("Your card number is not valid");
-                Console.WriteLine("Next valid number:");
-                GenerateNextCreditCardNumber(q);
-            }
-            
-            //string q = "4561 2612 1234 5467";
+            GetCreditCardVendor(q);
             if (def == true)
             {
                 if (IsCreditCardNumberValid(q))
                 {
-
+                    Console.WriteLine(GetCreditCardVendor(q));
                     Console.WriteLine("Your card number is valid");
-                }              
+                }
+                else
+                    Console.WriteLine("Your card number is not valid");
                 Console.WriteLine("Next valid number:");
                 GenerateNextCreditCardNumber(q);
             }
+            else
+                Console.WriteLine(GetCreditCardVendor(q));
             Console.ReadLine();
         }
         static string GetCreditCardVendor(string a)
